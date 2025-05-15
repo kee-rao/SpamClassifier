@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spam Classifier Game</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>⚔️ Spam or Not? The Inbox Defender</h1>
+    <p class="subtitle">Enter your message and classify it like a pro spam slayer.</p>
+
+    <form id="classify-form" method="post">
+      <textarea id="msg-input" name="message"
+                placeholder="Type your message here..." required></textarea><br>
+
+      <div class="buttons">
+        <button type="submit">🔍 Analyze</button>
+        <button type="button" id="clear-btn">🧹 Clear</button>
+      </div>
+    </form>
+
+    <!-- Wrap this so we can hide/show easily -->
+    <div id="result-container" class="result {% if not prediction %}hidden{% endif %}">
+      {% if prediction %}
+        <strong>Prediction:</strong>
+        <span class="{{ 'spam' if prediction=='Spam' else 'not-spam' }}">
+          {{ prediction }}
+        </span><br>
+        <strong>Confidence:</strong> {{ confidence }}
+      {% endif %}
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('clear-btn').addEventListener('click', () => {
+      // clear the textarea
+      document.getElementById('msg-input').value = '';
+      // hide the result div
+      document.getElementById('result-container').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
