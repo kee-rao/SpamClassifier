@@ -1,21 +1,24 @@
 # Spam Classifier Flask App
 
-This is a simple Flask web application to classify messages as **Spam** or **Not Spam** using an ML model trained using LogisticRegression
+A lightweight Flask web application that classifies emails as **Spam** or **Not Spam** using a pre-trained Logistic Regression model. Ideal for detecting unwanted messages quickly and accurately.
 
-## Features
+---
 
-- Clean and preprocess input text.
-- Uses a Logistic Regression spam classifier (`spam_classifierLR.pkl`).
-- Shows prediction result with confidence score.
-- Simple, user-friendly web interface.
+## 🚀 Features
 
+- 🧹 **Text Cleaning & Preprocessing**: Normalizes input text (lowercasing, tokenization, stopword removal, etc.).
+- 🤖 **Machine Learning Model**: Uses a trained `LogisticRegression` model (`spam_classifierLR.pkl`) for predictions.
+- 📊 **Confidence Scoring**: Displays probability confidence alongside the classification.
+- 🖥️ **Web Interface**: User-friendly form to enter email text and receive real-time results.
+
+---
 ## Requirements
 
 - Python 3.7+
 - Flask
 - scikit-learn
 - joblib
-
+---
 ## Setup
 
 1. Clone this repository or copy the files to your project directory.
@@ -29,3 +32,4 @@ This is a simple Flask web application to classify messages as **Spam** or **Not
     ```bash
     python app.py
     ```
+---
